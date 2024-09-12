@@ -1,0 +1,84 @@
+.adm-dashboard {
+  width: 100%;
+  background-color: var(--white);
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
+}
+.adm-dashboard-row {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.adm-dashboard-cell {
+  height: 100%;
+  width: 350px;
+  border: 3px solid black;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+.adm-dashboard-cell:hover {
+  transform: scale(1.02);
+}
+.adm-bar-graph {
+  width: calc(100% - 400px);
+}
+
+.adm-dashboard-title {
+  font-size: 17px;
+}
+
+.adm-box {
+  justify-content: space-between;
+}
+
+.adm-dashboard-icon {
+  font-size: 48px;
+}
+
+.adm-dashboard-value {
+  font-size: 58px;
+  text-decoration: underline;
+}
+
+.adm-dashboard-perc-text {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .adm-dashboard {
+    height: max-content;
+  }
+  .adm-dashboard-cell {
+    width: 100%;
+  }
+  .adm-dashboard-title {
+    font-size: 14px;
+  }
+  .adm-dashboard-value {
+    font-size: 50px;
+  }
+  .adm-dashboard-icon {
+    font-size: 40px;
+  }
+  .adm-bar-graph {
+    width: 100%;
+  }
+  .adm-dashboard-row {
+    gap: 50px;
+  }
+}

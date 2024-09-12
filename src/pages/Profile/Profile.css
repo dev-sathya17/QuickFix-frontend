@@ -1,0 +1,138 @@
+.profile-container {
+  padding: 20px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  border: 4px solid var(--accent);
+}
+
+.profile-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.file-input {
+  display: none;
+}
+
+.camera-icon {
+  font-size: 35px;
+  background: none;
+  position: absolute;
+  padding: 5px;
+  background-color: var(--white);
+  border-radius: 10px;
+  width: 60px;
+  height: fit-content;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  top: 250px;
+  margin-left: 300px;
+  color: var(--accent);
+  box-shadow: 5px 5px 5px rgba(132, 10, 255, 0.1);
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-image input[type="file"] {
+  margin-top: 10px;
+}
+
+.profile-details label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: var(--accent-dark);
+}
+
+.profile-details input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-btn,
+.delete-btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.update-btn {
+  background-color: var(--accent);
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+}
+
+.update-btn:hover {
+  background-color: var(--accent-dark);
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-card {
+    padding: 10px;
+  }
+
+  .profile-details input {
+    padding: 8px;
+  }
+
+  .update-btn,
+  .delete-btn {
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .camera-icon {
+    margin-left: 260px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .camera-icon {
+    margin-left: 210px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .camera-icon {
+    margin-left: 180px;
+  }
+}

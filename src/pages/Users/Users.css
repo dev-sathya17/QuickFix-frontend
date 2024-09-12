@@ -1,0 +1,159 @@
+.users-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.user-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+  transform: scale(1.05);
+}
+
+.user-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.user-actions {
+  margin-top: 15px;
+}
+
+.edit-btn,
+.delete-btn {
+  background-color: var(--accent);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+.edit-btn:hover {
+  background-color: var(--accent-dark);
+}
+
+.delete-btn:hover {
+  background-color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .user-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    max-width: 100%;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.save-btn,
+.close-btn {
+  background-color: var(--accent);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover,
+.close-btn:hover {
+  background-color: var(--accent-dark);
+}

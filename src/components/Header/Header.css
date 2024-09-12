@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--background);
+  gap: 10px;
+  width: 300px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  mix-blend-mode: multiply;
+}
+
+.title {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.2em;
+  }
+  .logo {
+    height: 30px;
+  }
+}

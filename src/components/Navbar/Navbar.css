@@ -1,0 +1,156 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: var(--background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 40px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-items {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-item {
+  list-style: none;
+  font-size: 17px;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-item::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  background-color: var(--accent);
+  left: 0;
+  margin-top: 5px;
+}
+
+.nav-item:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-profile {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.nav-profile-active {
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-logout-btn {
+  all: unset;
+  background-color: var(--red);
+  padding: 7px;
+  color: var(--white);
+  border-radius: 8px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.nav-footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.active {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: var(--black);
+}
+
+.nav-mob {
+  display: none;
+}
+
+@media screen and (max-width: 940px) {
+  .nav-items {
+    display: none;
+  }
+  .nav-footer {
+    display: none;
+  }
+  .nav-header {
+    display: none;
+  }
+  .hamburger-icon {
+    display: flex;
+  }
+  .nav-mob {
+    width: 60%;
+    background-color: var(--background);
+    position: fixed;
+    height: 100vh;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.1);
+  }
+  .nav-mob-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+  }
+  .nav-body-mob {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 60%;
+  }
+  .nav-footer-mob {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+  .nav-logout-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .nav-mob {
+    width: 100%;
+  }
+}
