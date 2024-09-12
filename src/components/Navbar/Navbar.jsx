@@ -67,6 +67,13 @@ const Navbar = ({ role, active }) => {
                 </NavLink>
               </li>
               <li
+                className={`nav-item ${active === "employees" ? "active" : ""}`}
+              >
+                <NavLink to={`/admin/employees`} className="nav-link">
+                  Employees
+                </NavLink>
+              </li>
+              <li
                 className={`nav-item ${active === "tickets" ? "active" : ""}`}
               >
                 <NavLink to={`/${role}/tickets`} className="nav-link">
@@ -124,6 +131,15 @@ const Navbar = ({ role, active }) => {
                 >
                   <NavLink to={`/admin/users`} className="nav-link">
                     Users
+                  </NavLink>
+                </li>
+                <li
+                  className={`nav-item ${
+                    active === "employees" ? "active" : ""
+                  }`}
+                >
+                  <NavLink to={`/admin/employees`} className="nav-link">
+                    Employees
                   </NavLink>
                 </li>
                 <li

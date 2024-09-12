@@ -12,6 +12,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import Profile from "./pages/Profile/Profile";
 import Users from "./pages/Users/Users";
 import adminLoader from "./loaders/admin.loader";
+import Employees from "./pages/Employees/Employees";
+import Categories from "./pages/Categories/Categories";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +75,16 @@ const router = createBrowserRouter([
             path: "users",
             element: <Users />,
             loader: adminLoader.fetchAllUsers,
+          },
+          {
+            path: "employees",
+            element: <Employees />,
+            loader: adminLoader.fetchAllEmployees,
+          },
+          {
+            path: "categories",
+            element: <Categories />,
+            loader: adminLoader.fetchAllCategories,
           },
         ],
       },
