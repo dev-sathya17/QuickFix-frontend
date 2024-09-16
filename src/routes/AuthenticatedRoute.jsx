@@ -11,6 +11,8 @@ const AuthenticatedRoute = () => {
         navigate("/admin/dashboard", { replace: true });
       } else if (role === "user") {
         navigate("/user/dashboard", { replace: true });
+      } else if (role === "employee") {
+        navigate("/employee/dashboard", { replace: true });
       }
     }
   }, [isAuthenticated, role, navigate]);

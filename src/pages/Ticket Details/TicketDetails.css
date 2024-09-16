@@ -1,0 +1,336 @@
+.ticket-chat-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.go-back-btn {
+  all: unset;
+  background-color: var(--white);
+  padding: 10px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s linear;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waiting-message {
+  font-weight: 500;
+  margin-top: 250px;
+  text-align: center;
+  margin-right: 150px;
+}
+
+.go-back-btn:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+.ticket-container {
+  width: 47%;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  font-size: 20px;
+}
+
+.ticket-id-title {
+  font-weight: 500;
+  color: var(--black);
+  padding: 3px 5px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.ticket-id {
+  font-weight: 500;
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.ticket-info-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticket-status {
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.open {
+  color: var(--blue);
+  background-color: rgb(212, 238, 255);
+}
+
+.assigned {
+  color: rgb(255, 119, 0);
+  background-color: rgb(255, 227, 176);
+}
+
+.closed {
+  color: var(--green);
+  background-color: rgb(149, 255, 149);
+}
+
+.ticket-title {
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.ticket-info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.ticket-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assigned-to {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.assigned-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.attachments ul {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: right;
+}
+
+.attachments {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.attachments a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.attachments a:hover {
+  text-decoration: underline;
+}
+
+.ticket-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 47%;
+  background-color: var(--background);
+  padding: 10px 20px;
+  margin-right: 25px;
+  margin-top: 20px;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--white);
+  border-radius: 15px;
+  width: 100%;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  height: 60vh;
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 10px 25px;
+}
+
+.chat-body::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 20px;
+  background-color: var(--white);
+  border-radius: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.chat-footer input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.chat-footer input:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+}
+
+.chat-footer button {
+  all: unset;
+  background-color: var(--accent);
+  padding: 8px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-footer button:hover {
+  background-color: var(--accent-dark);
+}
+
+.chat-send-icon {
+  font-size: 20px;
+}
+
+.assigned-person {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.chat-message-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-message-user {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 500;
+  margin: 5px 0;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.chat-with {
+  font-size: 17px;
+  color: var(--black);
+  font-weight: 500;
+}
+
+.chat-message-content {
+  background-color: var(--accent-light);
+  padding: 0 10px;
+}
+
+.chat-message-content > p {
+  color: var(--black);
+}
+
+.receive {
+  border-radius: 0px 10px 10px 10px;
+}
+
+.send {
+  flex-direction: row-reverse;
+  border-radius: 10px 0px 10px 10px;
+}
+
+.chat-msg-timestamp {
+  font-size: 10px;
+  color: var(--black);
+}
+
+.comment-action {
+  cursor: pointer;
+  margin: 0 5px;
+  color: var(--white);
+  border: 2px solid #f6f6f6;
+  transition: 0.3s ease;
+  font-size: 17px;
+}
+
+.edit-comment:hover {
+  color: var(--green);
+}
+
+.delete-comment:hover {
+  color: var(--red);
+}
+
+.edit-comment-input {
+  width: 100%;
+  padding-left: 5px;
+  background-color: var(--accent-light);
+  border: none;
+  border-bottom: 2px solid var(--accent);
+}
+
+.loading {
+  opacity: 0.5;
+}
+
+@media (max-width: 1100px) {
+  .ticket-container,
+  .ticket-chat {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ticket-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ticket-details,
+  .assigned-to {
+    margin: 10px 0;
+  }
+
+  .ticket-title {
+    font-size: 1.5rem;
+  }
+}

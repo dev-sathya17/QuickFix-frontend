@@ -1,0 +1,163 @@
+.categories-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 100%;
+}
+
+.categories-modal textarea {
+  resize: none;
+}
+.categories-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.categories-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.categories-modal h3 {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.categories-modal input,
+.categories-modal textarea,
+.categories-modal select {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.categories-modal textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.categories-modal button {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categories-modal button:hover {
+  background-color: var(--accent-dark);
+}
+
+.categories-modal button.close-btn {
+  background-color: #6c757d;
+}
+
+.categories-modal button.close-btn:hover {
+  background-color: #5a6268;
+}
+.categories-modal textarea {
+  resize: none;
+}
+
+.modal-attachment-item {
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.categories-modal input,
+.categories-modal textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 2px 7px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+}
+.categories-modal input:focus,
+.categories-modal textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.ticket-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+input[type="file"] {
+  border: none;
+}
+
+.file-upload-label {
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.file-upload-modal-icon {
+  font-size: 28px;
+  margin-top: 5px;
+}
+
+.file-upload-label:hover {
+  background-color: var(--accent-dark);
+}
+
+.file-upload-button {
+  display: inline-block;
+}
+
+.file-input {
+  display: none; /* Hide the default file input */
+}

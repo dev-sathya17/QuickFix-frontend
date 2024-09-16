@@ -14,6 +14,9 @@ import Users from "./pages/Users/Users";
 import adminLoader from "./loaders/admin.loader";
 import Employees from "./pages/Employees/Employees";
 import Categories from "./pages/Categories/Categories";
+import TicketDetails from "./pages/Ticket Details/TicketDetails";
+import ticketLoader from "./loaders/ticket.loader";
+import EmployeeDashboard from "./pages/EmployeeDashboard/EmployeeDashboard";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +61,28 @@ const router = createBrowserRouter([
             path: "dashboard",
             element: <UserDashboard />,
             loader: userLoader.checkAuth,
+          },
+          {
+            path: "ticket/:id",
+            element: <TicketDetails />,
+            loader: ticketLoader.fetchTicket,
+          },
+        ],
+      },
+      {
+        path: "employee",
+        element: <ProtectedRoute />,
+        loader: userLoader.checkAuth,
+        children: [
+          {
+            path: "dashboard",
+            element: <EmployeeDashboard />,
+            loader: userLoader.checkAuth,
+          },
+          {
+            path: "ticket/:id",
+            element: <TicketDetails />,
+            loader: ticketLoader.fetchTicket,
           },
         ],
       },
