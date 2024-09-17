@@ -28,6 +28,17 @@ const adminService = {
       return error.response.data.message;
     }
   },
+  getUnassignedEmployees: async () => {
+    try {
+      const response = await protectedInstance.get(
+        "/admin/employees/unassigned"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return error.response.data.message;
+    }
+  },
 };
 
 export default adminService;

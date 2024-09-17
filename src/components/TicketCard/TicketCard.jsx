@@ -3,13 +3,22 @@ import "./TicketCard.css";
 import BACKEND_URL from "../../utils/config";
 import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
+import { MdOutlineFileDownloadDone } from "react-icons/md";
 
-const TicketCard = ({ ticket, onEdit, appealClosed, role, onDelete }) => {
+const TicketCard = ({
+  ticket,
+  onEdit,
+  appealClosed,
+  role,
+  onDelete,
+  employees,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(ticket.title);
   const [editedDescription, setEditedDescription] = useState(
     ticket.description
   );
+  const [selectedEmployee, setSelectedEmployee] = useState("");
   const navigate = useNavigate();
 
   const handleSave = () => {
@@ -20,6 +29,15 @@ const TicketCard = ({ ticket, onEdit, appealClosed, role, onDelete }) => {
   const handleViewTicket = (id) => {
     navigate(`/user/ticket/${id}`);
   };
+
+  const handleSelectChange = (e) => {
+    setSelectedEmployee(e.target.value);
+  };
+
+  let employeesData = null;
+  if (role === "admin") {
+    employeesData = [{ _id: null, name: "Select an Employee" }, ...employees];
+  }
 
   return (
     <div className="ticket-card">
@@ -109,13 +127,34 @@ const TicketCard = ({ ticket, onEdit, appealClosed, role, onDelete }) => {
           )}
         </div>
 
-        {!isEditing && ticket.status !== "closed" && (
+        {!isEditing && ticket.status !== "closed" && role === "user" && (
           <button
             className="ticket-card-btn edit-ticket-btn"
             onClick={() => setIsEditing(true)}
           >
             Edit
           </button>
+        )}
+        {role === "admin" && ticket.status !== "closed" && (
+          <>
+            {ticket.assignedTo === null ? (
+              <>
+                <select onChange={handleSelectChange} value={selectedEmployee}>
+                  {employeesData.map((employee) => (
+                    <option value={employee._id}>{employee.name}</option>
+                  ))}
+                </select>
+                <MdOutlineFileDownloadDone
+                  style={{ cursor: "pointer" }}
+                  onClick={() => onEdit(ticket._id, selectedEmployee)}
+                />
+              </>
+            ) : (
+              <>
+                <p>Employee: {ticket.assignedTo.name}</p>
+              </>
+            )}
+          </>
         )}
       </div>
       <div className="ticket-footer">

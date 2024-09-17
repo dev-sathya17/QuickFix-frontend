@@ -11,6 +11,7 @@ const Tickets = ({
   showAddModal,
   setShowAddModal,
   handleDeleteTicket,
+  employees,
 }) => {
   const [tickets, setTickets] = useState();
   const [searchTerm, setSearchTerm] = useState("");
@@ -64,6 +65,7 @@ const Tickets = ({
             appealClosed={appealClosed}
             role={role}
             onDelete={handleDeleteTicket}
+            employees={employees}
           />
         ))}
       </div>

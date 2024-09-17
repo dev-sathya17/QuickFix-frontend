@@ -1,5 +1,5 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import "./TicketDetails.css"; // Import the CSS file for styling
+import "./TicketDetails.css";
 import BACKEND_URL from "../../utils/config";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { IoSend } from "react-icons/io5";
@@ -16,8 +16,8 @@ const TicketDetails = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [message, setMessage] = useState("");
   const [comments, setComments] = useState(ticket.comments);
-  const [editingCommentId, setEditingCommentId] = useState(null); // Track the currently edited comment
-  const [editedText, setEditedText] = useState(""); // Track the text being edited
+  const [editingCommentId, setEditingCommentId] = useState(null);
+  const [editedText, setEditedText] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const socket = useSocket();
@@ -60,7 +60,7 @@ const TicketDetails = () => {
         setComments(updatedComments);
       });
     }
-    // TODO: handle socket connection for edit and delete messages
+
     return () => {
       socket.off("commented");
       socket.off("updated comment");
@@ -132,12 +132,12 @@ const TicketDetails = () => {
 
   const handleEditMessage = (commentId, text) => {
     setEditingCommentId(commentId);
-    setEditedText(text); // Set the text of the comment being edited
+    setEditedText(text);
   };
 
   const saveEditedMessage = (commentId) => {
-    setLoading(true); // Set loading while message is being edited
-    // API call for editing comment
+    setLoading(true);
+
     console.log(commentId);
     commentService
       .updateComment(commentId, { text: editedText })
@@ -150,7 +150,7 @@ const TicketDetails = () => {
               : comment
           );
           setComments(updatedComments);
-          setEditingCommentId(null); // Reset editing state
+          setEditingCommentId(null);
           setEditedText("");
         } else {
           console.error("Failed to edit comment:", response);
@@ -163,8 +163,7 @@ const TicketDetails = () => {
   };
 
   const handleDeleteMessage = (commentId) => {
-    setLoading(true); // Set loading while message is being deleted
-    // API call for deleting comment
+    setLoading(true);
     commentService
       .deleteComment(commentId)
       .then((response) => {
@@ -197,14 +196,16 @@ const TicketDetails = () => {
             <p className="ticket-id-title">
               TICKET ID: <span className="ticket-id">{ticket._id}</span>
             </p>
-            {currentUser.role === "user" ? (
+            {currentUser.role === "user" || currentUser.role === "admin" ? (
               <p className={`ticket-status ${ticket.status}`}>
                 {ticket.status}
               </p>
-            ) : (
+            ) : currentUser.role === "employee" ? (
               <button className="ticket-card-btn" onClick={handleEditTicket}>
                 Close Ticket
               </button>
+            ) : (
+              <></>
             )}
           </div>
           <div>
@@ -278,6 +279,10 @@ const TicketDetails = () => {
             </div>
             <div className="chat-body">
               {comments.map((comment) => {
+                const isAdmin = currentUser.role === "admin";
+                const isOwner = comment.sender === ticket.owner._id;
+                const isSenderCurrentUser = comment.sender === currentUser._id;
+
                 return (
                   <div
                     key={comment._id}
@@ -285,20 +290,20 @@ const TicketDetails = () => {
                   >
                     <div
                       className={`chat-message-user ${
-                        comment.sender === currentUser._id ? "send" : ""
+                        isSenderCurrentUser || (isAdmin && isOwner)
+                          ? "send"
+                          : ""
                       }`}
                     >
                       <img
                         src={`${BACKEND_URL}/${
-                          comment.sender === currentUser._id
-                            ? ticket.owner.image
-                            : ticket.assignedTo.image
+                          isOwner ? ticket.owner.image : ticket.assignedTo.image
                         }`}
                         className="chat-message-avatar"
                       />
                       <div
                         className={`chat-message-content ${
-                          comment.sender === currentUser._id
+                          isSenderCurrentUser || (isAdmin && isOwner)
                             ? "send"
                             : "receive"
                         }`}
@@ -315,7 +320,9 @@ const TicketDetails = () => {
                         )}
                         <div
                           className={`chat-message-user ${
-                            comment.sender === currentUser._id ? "send" : ""
+                            isSenderCurrentUser || (isAdmin && isOwner)
+                              ? "send"
+                              : ""
                           }`}
                         >
                           <p className="chat-msg-timestamp">
@@ -323,40 +330,51 @@ const TicketDetails = () => {
                           </p>
                         </div>
                       </div>
-                      {editingCommentId === comment._id ? (
-                        <IoMdCheckmark
-                          className="edit-comment comment-action"
-                          onClick={() => saveEditedMessage(comment._id)}
-                        />
-                      ) : (
-                        <FaPen
-                          className="edit-comment comment-action"
-                          onClick={() =>
-                            handleEditMessage(comment._id, comment.text)
-                          }
-                        />
+                      {isSenderCurrentUser && (
+                        <>
+                          {editingCommentId === comment._id ? (
+                            <IoMdCheckmark
+                              className="edit-comment comment-action"
+                              onClick={() => saveEditedMessage(comment._id)}
+                            />
+                          ) : (
+                            <FaPen
+                              className="edit-comment comment-action"
+                              onClick={() =>
+                                handleEditMessage(comment._id, comment.text)
+                              }
+                            />
+                          )}
+                          <FaTrash
+                            className="delete-comment comment-action"
+                            onClick={() => handleDeleteMessage(comment._id)}
+                          />
+                        </>
                       )}
-                      <FaTrash
-                        className="delete-comment comment-action"
-                        onClick={() => handleDeleteMessage(comment._id)}
-                      />
                     </div>
                   </div>
                 );
               })}
               <div ref={endOfMessagesRef} />
             </div>
-            <div className="chat-footer">
-              <input
-                type="text"
-                placeholder="Type your message here..."
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-              <button onClick={handleSendMessage} disabled={loading}>
-                {loading ? "Sending..." : <IoSend className="chat-send-icon" />}
-              </button>
-            </div>
+
+            {currentUser.role !== "admin" && (
+              <div className="chat-footer">
+                <input
+                  type="text"
+                  placeholder="Type your message here..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+                <button onClick={handleSendMessage} disabled={loading}>
+                  {loading ? (
+                    "Sending..."
+                  ) : (
+                    <IoSend className="chat-send-icon" />
+                  )}
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <h1 className="waiting-message">Ticket is yet to be assigned...</h1>

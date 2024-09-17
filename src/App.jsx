@@ -17,6 +17,7 @@ import Categories from "./pages/Categories/Categories";
 import TicketDetails from "./pages/Ticket Details/TicketDetails";
 import ticketLoader from "./loaders/ticket.loader";
 import EmployeeDashboard from "./pages/EmployeeDashboard/EmployeeDashboard";
+import AdminTickets from "./pages/AdminTickets/AdminTickets";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +111,16 @@ const router = createBrowserRouter([
             path: "categories",
             element: <Categories />,
             loader: adminLoader.fetchAllCategories,
+          },
+          {
+            path: "tickets",
+            element: <AdminTickets />,
+            loader: userLoader.checkAuth,
+          },
+          {
+            path: "ticket/:id",
+            element: <TicketDetails />,
+            loader: ticketLoader.fetchTicket,
           },
         ],
       },

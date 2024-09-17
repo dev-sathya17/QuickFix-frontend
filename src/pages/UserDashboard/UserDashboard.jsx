@@ -3,10 +3,22 @@ import Navbar from "../../components/Navbar/Navbar";
 import Tickets from "../Tickets/Tickets";
 import { useEffect, useState } from "react";
 import ticketService from "../../services/ticket.service";
+import socket from "../../utils/socket";
 const UserDashboard = () => {
   const { role } = useLoaderData();
   const [data, setData] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
+
+  useEffect(() => {
+    if (socket) {
+      socket.on("ticket updated", (ticket) => {
+        const updatedData = data.map((item) =>
+          item._id === ticket._id ? ticket : item
+        );
+        setData(updatedData);
+      });
+    }
+  });
 
   useEffect(() => {
     ticketService
