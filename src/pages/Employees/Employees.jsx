@@ -53,7 +53,8 @@ const Employees = () => {
           if (response.status === 200) {
             alert(response.data.message);
             dispatch(deleteUserSuccess());
-            setUsers(users.filter((user) => user._id !== user._id));
+            const filteredUsers = users.filter((item) => item._id !== user._id);
+            setUsers(filteredUsers);
           } else {
             alert(response);
             dispatch(deleteUserFailure(response));

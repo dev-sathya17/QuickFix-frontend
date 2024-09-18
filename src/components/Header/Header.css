@@ -4,7 +4,7 @@
   padding: 10px 20px;
   background-color: var(--background);
   gap: 10px;
-  width: 300px;
+  min-width: 300px;
 }
 
 .logo {

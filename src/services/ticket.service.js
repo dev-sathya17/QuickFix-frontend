@@ -68,6 +68,25 @@ const ticketService = {
       return error.message;
     }
   },
+  downloadAttachment: async (file) => {
+    try {
+      const response = await protectedInstance.get(
+        `/tickets/download/${file}`,
+        {
+          responseType: "blob",
+        }
+      );
+      const url = URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "attachment.pdf");
+      document.body.appendChild(link);
+      link.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 
 export default ticketService;

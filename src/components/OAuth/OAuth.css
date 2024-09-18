@@ -1,0 +1,36 @@
+.oauth-button {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38%;
+  border: 2px solid var(--accent);
+  padding: 4px;
+  gap: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.google-icon {
+  font-size: 24px;
+}
+
+.oauth-button > p {
+  color: var(--black);
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 930px) {
+  .oauth-button {
+    width: 70%;
+  }
+  .oauth-button > p {
+    font-size: 14px;
+  }
+
+  .google-icon {
+    font-size: 20px;
+  }
+}

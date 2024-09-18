@@ -104,6 +104,19 @@ const userServices = {
       return error.response.data.message;
     }
   },
+  oAuthSignIn: async (data) => {
+    try {
+      const response = await instance.post("/users/oauth", data, {
+        withCredentials: true,
+      });
+      return {
+        status: response.status,
+        data: response.data,
+      };
+    } catch (error) {
+      return error.response.data.message;
+    }
+  },
 };
 
 export default userServices;

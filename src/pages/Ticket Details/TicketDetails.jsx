@@ -24,12 +24,7 @@ const TicketDetails = () => {
   const endOfMessagesRef = useRef(null);
 
   const handleDownload = (attachment) => {
-    const link = document.createElement("a");
-    link.href = `${BACKEND_URL}/${attachment}`;
-    link.download = attachment.split("\\").pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    ticketService.downloadAttachment(attachment.split("\\")[1]);
   };
 
   const handleGoBack = () => {
@@ -200,8 +195,12 @@ const TicketDetails = () => {
               <p className={`ticket-status ${ticket.status}`}>
                 {ticket.status}
               </p>
-            ) : currentUser.role === "employee" ? (
-              <button className="ticket-card-btn" onClick={handleEditTicket}>
+            ) : currentUser.role === "employee" &&
+              ticket.status !== "closed" ? (
+              <button
+                className="ticket-card-btn"
+                onClick={() => handleEditTicket(ticket._id)}
+              >
                 Close Ticket
               </button>
             ) : (

@@ -73,6 +73,10 @@
   border-radius: 5px;
 }
 
+.attachments > ul > li {
+  cursor: pointer;
+}
+
 .open {
   color: var(--blue);
   background-color: rgb(212, 238, 255);

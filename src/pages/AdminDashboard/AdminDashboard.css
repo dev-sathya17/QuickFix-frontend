@@ -1,6 +1,6 @@
 .adm-dashboard {
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--background);
   height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
@@ -30,12 +30,13 @@
   transition: 0.3s ease;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
   flex-direction: column;
+  background-color: var(--white);
 }
 .adm-dashboard-cell:hover {
   transform: scale(1.02);
 }
 .adm-bar-graph {
-  width: calc(100% - 400px);
+  width: 100%;
 }
 
 .adm-dashboard-title {

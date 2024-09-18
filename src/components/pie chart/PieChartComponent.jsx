@@ -8,11 +8,11 @@ import {
 } from "recharts";
 
 const PieChartComponent = ({ data }) => {
-  const COLORS = ["#4caf50", "#ff9800", "#ff230b", "#2b8bff"];
+  const COLORS = ["#f05588", "#cb4a75", "#ff0059", "#ffcedf"];
   return (
     <>
       {data && (
-        <ResponsiveContainer width={"90%"} height={"90%"}>
+        <ResponsiveContainer width={"100%"} height={"100%"}>
           <PieChart>
             <Pie
               data={data}

@@ -14,6 +14,7 @@ import {
   signInStart,
   signInSuccess,
 } from "../../features/user/userSlice";
+import OAuth from "../../components/OAuth/OAuth";
 
 const validate = (values) => {
   const errors = {};
@@ -127,6 +128,7 @@ const LoginPage = () => {
             <button className="submit-button" type="submit" disabled={loading}>
               {loading ? "Signing in..." : "SIGN IN"}
             </button>
+            <OAuth />
             <p>
               Forgot Password?{" "}
               <Link className="link" to="/forgot">
