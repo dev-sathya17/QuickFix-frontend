@@ -84,7 +84,7 @@ const Profile = () => {
     }
   };
 
-  if (user) {
+  if (user && user.image.includes("uploads")) {
     user.image = user.image.replace("\\", "/");
   }
 
@@ -137,7 +137,11 @@ const Profile = () => {
                 <img src={imageUrl} alt="Profile" />
               ) : (
                 <img
-                  src={`${BACKEND_URL}/${user.image}`}
+                  src={
+                    user.image.includes("uploads")
+                      ? `${BACKEND_URL}/${user.image.replace("\\", "/")}`
+                      : `${user.image}`
+                  }
                   alt={user.firstName}
                 />
               )}

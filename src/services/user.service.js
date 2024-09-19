@@ -106,7 +106,7 @@ const userServices = {
   },
   oAuthSignIn: async (data) => {
     try {
-      const response = await instance.post("/users/oauth", data, {
+      const response = await instance.post("/users/login/oauth", data, {
         withCredentials: true,
       });
       return {

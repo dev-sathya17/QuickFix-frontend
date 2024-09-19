@@ -96,7 +96,11 @@ const Navbar = ({ role, active }) => {
         </ul>
         <div className="nav-footer">
           <img
-            src={`${BACKEND_URL}/${currentUser.image.replace("\\", "/")}`}
+            src={
+              currentUser.image.includes("uploads")
+                ? `${BACKEND_URL}/${currentUser.image.replace("\\", "/")}`
+                : `${currentUser.image}`
+            }
             alt="profile picture"
             className={`nav-profile ${
               active === "profile" ? "nav-profile-active" : ""
@@ -165,7 +169,11 @@ const Navbar = ({ role, active }) => {
           </ul>
           <div className="nav-footer-mob">
             <img
-              src={`${BACKEND_URL}/${currentUser.image.replace("\\", "/")}`}
+              src={
+                currentUser.image.includes("uploads")
+                  ? `${BACKEND_URL}/${currentUser.image.replace("\\", "/")}`
+                  : `${currentUser.image}`
+              }
               alt="profile picture"
               className={`nav-profile ${active ? "nav-profile-active" : ""}`}
               onClick={handleProfileNavigation}

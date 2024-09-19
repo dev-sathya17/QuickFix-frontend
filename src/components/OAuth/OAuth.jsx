@@ -16,7 +16,6 @@ const OAuth = () => {
       const auth = getAuth(app);
 
       const result = await signInWithPopup(auth, provider);
-
       const { status, data } = await userServices.oAuthSignIn({
         name: result.user.displayName,
         email: result.user.email,
@@ -25,7 +24,7 @@ const OAuth = () => {
       if (status === 200) {
         alert("Logged in successfully");
         dispatch(signInSuccess(data));
-        navigate("/");
+        navigate(`/${data.role}/dashboard`);
       } else {
         console.error(data.message);
         dispatch(signInFailure(data.message));

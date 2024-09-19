@@ -24,7 +24,7 @@ const TicketDetails = () => {
   const endOfMessagesRef = useRef(null);
 
   const handleDownload = (attachment) => {
-    ticketService.downloadAttachment(attachment.split("\\")[1]);
+    ticketService.downloadAttachment(attachment.split("/")[1]);
   };
 
   const handleGoBack = () => {
@@ -234,7 +234,7 @@ const TicketDetails = () => {
               {ticket.attachments.map((attachment, index) => (
                 <li key={index}>
                   <a onClick={() => handleDownload(attachment)}>
-                    {attachment.split("\\").pop()}
+                    {attachment.split("/").pop()}
                   </a>
                 </li>
               ))}
