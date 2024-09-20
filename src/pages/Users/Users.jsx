@@ -117,7 +117,11 @@ const Users = () => {
             filteredUsers.map((user, index) => (
               <div key={index} className="user-card">
                 <img
-                  src={`${BACKEND_URL}/${user.image.replace("\\", "/")}`}
+                  src={
+                    user.image.includes("uploads")
+                      ? `${BACKEND_URL}/${user.image.replace("\\", "/")}`
+                      : `${user.image}`
+                  }
                   alt={user.name}
                   className="user-image"
                 />
