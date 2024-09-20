@@ -47,13 +47,16 @@ Quick Fix is a ticket management system built with the MERN stack. It allows use
 The project uses the following dependencies:
 
 - `axios`: Promise-based HTTP client for API calls.
-- `dnd-kit`: Drag-and-drop toolkit for creating kanban boards.
+- `@reduxjs/toolkit`: Redux toolkit to manage state globally.
 - `formik`: Form library for React.
-- `html2pdf`: Convert HTML to PDF for report downloading.
+- `firebase`: Firebase integration for OAuth.
 - `react-icons`: Collection of popular icons.
 - `react-router-dom`: Declarative routing for React.
 - `yup`: Schema validation for forms.
 - `recharts`: Library for building charts.
+- `react-dotenv`: To declare and access environment variables in the application.
+- `redux-persist`: To persist redux state after reloading.
+- `socket.io-client`: To connect to web-sockets.
 
 ## Components
 
@@ -67,6 +70,10 @@ The project uses the following dependencies:
 ## Contexts
 
 - **Socket Context:** To provide socket connection across all components.
+
+## Features
+
+- **User:** Slice to manage user state using redux across application.
 
 ## Loaders
 
