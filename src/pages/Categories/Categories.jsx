@@ -20,7 +20,6 @@ const Categories = () => {
   );
 
   const deleteCategory = (id) => {
-    console.log(id);
     categoryService
       .deleteCategory(id)
       .then((response) => {
@@ -42,7 +41,6 @@ const Categories = () => {
 
   const addCategory = () => {
     if (newCategory.trim() === "") return;
-    console.log(newCategory);
     const newCategoryObj = {
       name: newCategory,
     };

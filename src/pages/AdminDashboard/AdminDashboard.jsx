@@ -29,7 +29,6 @@ const AdminDashboard = () => {
     adminService
       .getTicketsByStatus()
       .then((response) => {
-        console.log(response);
         const data = [
           {
             name: "open",
@@ -54,7 +53,6 @@ const AdminDashboard = () => {
     adminService
       .getCompletionData()
       .then((response) => {
-        console.log(response);
         const data = [];
         for (let i in response) {
           data.push({

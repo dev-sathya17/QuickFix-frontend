@@ -133,7 +133,6 @@ const TicketDetails = () => {
   const saveEditedMessage = (commentId) => {
     setLoading(true);
 
-    console.log(commentId);
     commentService
       .updateComment(commentId, { text: editedText })
       .then((response) => {
